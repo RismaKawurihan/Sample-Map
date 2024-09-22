@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Kauwri Sample Map
-    </ion-title>
+    <ion-title style="font-family: Georgia, serif; font-size: 24px;">Resk's Map</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Kauwri Sample Map</ion-title>
+      <ion-title size="large">Resk's Map</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container"></div>
 </ion-content>
+
+<ion-footer translucent>
+  <ion-toolbar color="transparent">
+    <ion-buttons slot="end" class="ion-margin-end">
+      <ion-select interface="popover" [(ngModel)]="selectedBasemap" (ionChange)="changeBasemap()" placeholder="Pilih Basemap" style="font-family: Georgia, serif;">
+        <ion-select-option value="streets">Streets</ion-select-option>
+        <ion-select-option value="topo">Topographic</ion-select-option>
+        <ion-select-option value="satellite">Satellite</ion-select-option>
+        <ion-select-option value="topo-vector">Topo Vector</ion-select-option>
+        <ion-select-option value="gray-vector">Gray Vector</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -15,7 +15,7 @@ export class HomePage {
   mapView: MapView | any;
   userLocationGraphic: Graphic | any;
   selectedBasemap!: string;
-  BrinkleyvilleMarker: Graphic | any;
+  AshlandMarker: Graphic | any;
 
   constructor() { }
   async ngOnInit() {
@@ -32,14 +32,14 @@ export class HomePage {
     let weatherServiceFL = new ImageryLayer({ url: WeatherServiceUrl });
     map.add(weatherServiceFL);
 
-    this.addBrinkleyvilleMarker();
+    this.addAshlandMarker();
 
 
     this.mapView.when(() => {
-      const brinkleyvilleCoordinates = [36.2001, -77.6461];
+      const ashlandCoordinates = [40.86833639733679, -82.31767291043275];
       this.mapView.center = new Point({
-        latitude: brinkleyvilleCoordinates[0],
-        longitude: brinkleyvilleCoordinates[1]
+        latitude: ashlandCoordinates[0],
+        longitude: ashlandCoordinates[1]
       });
       this.mapView.zoom = 7;
     });
@@ -76,15 +76,15 @@ export class HomePage {
     }
   }
 
-  addBrinkleyvilleMarker() {
-    const brinkleyvilleCoordinates = [36.2001, -77.6461]; // Koordinat Brinkleyville, NC
-    const brinkleyvillePoint = new Point({
-      latitude: brinkleyvilleCoordinates[0],
-      longitude: brinkleyvilleCoordinates[1]
+  addAshlandMarker() { // Ubah method ini
+    const ashlandCoordinates = [40.86833639733679, -82.31767291043275];
+    const ashlandPoint = new Point({
+      latitude: ashlandCoordinates[0],
+      longitude: ashlandCoordinates[1]
     });
 
-    this.BrinkleyvilleMarker = new Graphic({
-      geometry: brinkleyvillePoint,
+    this.AshlandMarker = new Graphic({
+      geometry: ashlandPoint,
       symbol: new SimpleMarkerSymbol({
         color: [128, 0, 128],
         size: 8,
@@ -95,8 +95,7 @@ export class HomePage {
       })
     });
 
-    this.mapView.graphics.add(this.BrinkleyvilleMarker);
+    this.mapView.graphics.add(this.AshlandMarker);
   }
 }
-
   const WeatherServiceUrl = 'https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer'
